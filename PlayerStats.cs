@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 //This Script Collects Data From The Player Such As Player Name, Game Difficulty, And Character Customisation
-public class PlayerStats : MonoBehaviour
+public class PlayerStats01 : MonoBehaviour
 {
     //Variables That Store And Collect Name Input
     public string name;
