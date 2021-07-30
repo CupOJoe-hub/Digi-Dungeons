@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour
                 for (int i = 0; i < wierdInputStrings.Length; i++) {
                     if(hasPlayedInput.text == wierdInputStrings[i]) {
                         hasPlayed = false;
-                        hasPlayedInput.text = hasPlayedInput + "?" + " Are You Stupid?, Fuck Off!";
+                        hasPlayedInput.text = hasPlayedInput + "?" + " Are You Stupid?";
                     }
                 }
             }
