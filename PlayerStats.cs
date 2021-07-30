@@ -44,8 +44,10 @@ public class PlayerStats : MonoBehaviour
                 if(int.TryParse(difficultyInput.text, out difficulty)) {
                     difficulty = int.Parse(difficultyInput.text);
                     difficulty = Mathf.Clamp(difficulty, 1, 10);
+                    hasInputedDifficulty = true;
                 }else {
                     difficultyInput.text = "Please Input A Number";
+                    hasInputedDifficulty = false;
                 }
             }
         }
@@ -70,7 +72,7 @@ public class PlayerStats : MonoBehaviour
                 for (int i = 0; i < wierdInputStrings.Length; i++) {
                     if(hasPlayedInput.text == wierdInputStrings[i]) {
                         hasPlayed = false;
-                        hasPlayedInput.text = hasPlayedInput + "?" + " Are You Stupid?";
+                        hasPlayedInput.text = hasPlayedInput.text + "?" + " Are You Stupid?";
                     }
                 }
             }
