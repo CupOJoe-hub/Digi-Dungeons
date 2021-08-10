@@ -11,16 +11,22 @@ public class PlayerStats : MonoBehaviour
     public string name;
     public bool hasInputedName;
     public InputField nameInput;
+    public Text nameText;
 
     //Variables That Store And Collect Game Difficulty Input
     public int difficulty;
     public bool hasInputedDifficulty;
     public InputField difficultyInput;
+    public Text difficultyText;
 
     //Variables That Change The Players Damage, Health And Defence
     public int attack;
     public int health;
-    public int defence;
+    public int speed;
+
+    public Text attackText;
+    public Text healthText;
+    public Text speedText;
 
     //Initialises Game Based On If They Have Played Or Not
     public InputField hasPlayedInput;
@@ -28,13 +34,12 @@ public class PlayerStats : MonoBehaviour
     public string[] acceptedHasPlayedStringsTrue;
     public string[] acceptedHasPlayedStringsFalse;
 
-    public string[] wierdInputStrings;
-
     //In The Update Function I Will Collect Variables Data
     private void Update() {
         if(hasInputedName == false) { 
             if(nameInput.text != null && Input.GetKeyDown(KeyCode.Return)) {
                 name = nameInput.text;
+                nameText.text = nameInput.text;
                 hasInputedName = true;
             }
         }
@@ -44,6 +49,7 @@ public class PlayerStats : MonoBehaviour
                 if(int.TryParse(difficultyInput.text, out difficulty)) {
                     difficulty = int.Parse(difficultyInput.text);
                     difficulty = Mathf.Clamp(difficulty, 1, 10);
+                    difficultyText.text = difficulty.ToString();
                     hasInputedDifficulty = true;
                 }else {
                     difficultyInput.text = "Please Input A Number";
@@ -63,16 +69,9 @@ public class PlayerStats : MonoBehaviour
                 }
 
                 for (int i = 0; i < acceptedHasPlayedStringsFalse.Length; i++) {
-                    if(hasPlayedInput.text == acceptedHasPlayedStringsFalse[i]) {
+                    if(hasPlayedInput.text == acceptedHasPlayedStringsFalse[i] && hasPlayed == true) {
                         hasPlayed = false;
                         StartTutorial();
-                    }
-                }
-
-                for (int i = 0; i < wierdInputStrings.Length; i++) {
-                    if(hasPlayedInput.text == wierdInputStrings[i]) {
-                        hasPlayed = false;
-                        hasPlayedInput.text = hasPlayedInput.text + "?" + " Are You Stupid?";
                     }
                 }
             }
@@ -84,16 +83,19 @@ public class PlayerStats : MonoBehaviour
     //Button Changes Attack Variable
     public void ChangeAttack(int change) {
         attack += change;
+        attackText.text = attack.ToString();
     }
 
     //Button Changes Health Variable
     public void ChangeHealth(int change) {
         health += change;
+        healthText.text = health.ToString();
     }
 
     //Button Changes Defence Varibale
-    public void ChangeDefence(int change) {
-        defence += change;
+    public void ChangeSpeed(int change) {
+        speed += change;
+        speedText.text = speed.ToString();
     }
 
     //Starts Game Without Tutorial
@@ -106,3 +108,4 @@ public class PlayerStats : MonoBehaviour
 
     }
 }
+
