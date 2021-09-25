@@ -41,7 +41,7 @@ public class MenuHandler : MonoBehaviour
     //Resumes Game And Unfreezes It From The Options Menu
     public void Resume() {
         optionsPanel.SetActive(false);
-        isOpen = false;
+        isOptionsOpen = false;
         Time.timeScale = 1f;
     }
 
