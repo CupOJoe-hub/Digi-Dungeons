@@ -23,6 +23,7 @@ public class PlayerData : MonoBehaviour
 
     public DataManager data;
 
+    //Sets Text Object's Text Field With Variables Set On The Menu Screen
     private void Update() {
         if(GameObject.FindGameObjectWithTag("DataManager") != null) {
             data = GameObject.FindGameObjectWithTag("DataManager").GetComponent<DataManager>();    
