@@ -19,14 +19,15 @@ public class TutorialScript : MonoBehaviour
 
     public Text tutorialText;
 
+    //Gathers And Sets Initialisation Variables
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         tutorialText.text = "You Can Use A+D to Move And Z+X To Sprint";
     }
 
+    //Collects Input For Tutorial From Player And Sets Booleans When Player Completes Tasks
     private void Update() { 
-
         //Checks If Player Has Used The Move Right Key
         if(Input.GetKeyDown(KeyCode.D)) {
             collectedPositiveX = true;
